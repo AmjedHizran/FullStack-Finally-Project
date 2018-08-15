@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-xs-6 col-md-4"></div>
+
+    <div id="return" class="col-xs-6 col-md-4">
+        <h2 *ngIf="!car.CarID">Return Car</h2>
+        <h2 *ngIf="car.CarID">Car Information</h2>
+        <div *ngIf="car.CarID">
+            <img style="width:200px; height:100px;" id="image" [src]="car.Image" />
+            <h4>CarNumber : {{car.CarNumber}}</h4>
+            <h4>Kilometrage : {{car.CurrentKilometrage}}</h4>
+            <div id="msgToFind" *ngIf="!order.OrderId && car.IsProperToRent == true" class="alert alert-danger ">
+                <strong>There Is No Booking For This Car Number {{carNumber}} !!</strong>
+            </div>
+            <button *ngIf="!order.OrderId && car.IsProperToRent == true " id="goback" (click)="goBack()" type="button " class="btn btn-primary ">Go Back</button>
+        </div>
+
+        <div *ngIf="!car.CarID">
+            <h3>Insert Car Number</h3>
+            <input class="form-control mb-2 mr-sm-0 mb-sm-3 " [(ngModel)]='carNumber' />
+            <button (click)="ShowCar()" [disabled]="!carNumber" type="button " class="btn btn-primary ">Show Car</button>
+        </div>
+
+        <div *ngIf="carPreview.DailyCost">
+            <div *ngIf="updateOrder">
+                <h4>The cost Of Renting A Car From : {{order.RentedDate}}</h4>
+                <h4>To : {{order.ActualReturnDate}}</h4>
+                <h4>Is : {{cost}}₪.</h4>
+            </div>
+        </div>
+        <div id="msgToFind" *ngIf="car.CarID && car.IsProperToRent == false && !updateOrder">
+            <button (click)="updateActualReturnDate()" class="btn btn-primary ">Returned Car</button>
+            <button (click)="goBack()" type="button " class="btn btn-primary ">Go Back</button>
+        </div>
+        <button *ngIf="updateOrder" (click)="goBack()" type="button " class="btn btn-primary ">Go Back</button>
+        <div class="col-xs-6 col-md-4"> </div>
+    </div>

@@ -1,0 +1,56 @@
+<div class="border border-dark ">
+    <div>
+        <h1 class=" display-3 ">Register</h1>
+    </div>
+    <div class="input-group ">
+        <input required pattern="^([a-zA-Z]+[\s])+[a-zA-Z]+$" [(ngModel)]="newUser.FullName " type="text" class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Full Name.. ">
+        <span class="validity "></span>
+    </div>
+
+    <div class="input-group ">
+        <input type="text " required pattern="[0-9]{4} *[0-9]{2} *[0-9]{3}" [(ngModel)]="newUser.IdCard" class=" form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter ID Card.. ">
+        <span class="validity "></span>
+    </div>
+
+    <div class="input-group">
+        <input [(ngModel)]="newUser.UserName" type="text" class="form-control mb-2 mr-sm-0 mb-sm-3 " placeholder="Enter User Name.. ">
+    </div>
+
+    <div class="input-group ">
+        <input required [(ngModel)]="newUser.Email" type="email" class="form-control mb-2 mr-sm-0 mb-sm-3 " placeholder="Enter Email">
+        <span class="validity "></span>
+    </div>
+
+    <div class="input-group ">
+        <input required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$ " #Password type="Password" class="form-control mb-2 mr-sm-0 mb-sm-3 " placeholder="Enter Password ">
+        <span class="validity "></span>
+    </div>
+
+    <h4>Enter Your Birthday:</h4>
+    <div class="input-group ">
+        <input required pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01]) " type="date" [(ngModel)]="newUser.DateOfBirth " class="form-control mb-2 mr-sm-0 mb-sm-1 ">
+    </div>
+    <form>
+        <h4>Choose your gender:</h4>
+        <div>
+            <input [(ngModel)]="newUser.Gender" type="radio" name="sex " id="sex-m " value="true">
+            <label for="sex-m ">Male</label>
+            <input [(ngModel)]="newUser.Gender" type="radio" name="sex " id="sex-f " value="false">
+            <label for="sex-f ">Female</label>
+        </div>
+    </form>
+
+    <button *ngIf="newUser.FullName && newUser.IdCard && newUser.UserName && newUser.Gender && newUser.Email " (click)="onAddingUser(Password.value) " type="button " class="btn btn-primary btn-lg btn-block ">Add User</button>
+    <button (click)="onResetUser()" type="button" class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+</div>
+
+<h1 class="alert ">
+    <div *ngIf="addedSuccess" class="alert alert-success">
+        <strong>Added Success!!</strong>
+    </div>
+</h1>
+<h1 class="alert">
+    <div *ngIf="!addedSuccess && isNotValid" class="alert alert-danger">
+        <strong>Incorrect Input , Please Insert Only Characters</strong>
+    </div>
+</h1>

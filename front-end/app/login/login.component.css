@@ -1,0 +1,30 @@
+            #login .form-wrap {
+                width: 40%;
+                margin: 0 auto;
+            }
+            
+            h2 {
+                color: #000000;
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            
+            #inputs {
+                text-align: center;
+            }
+            
+            .form-control {
+                color: #212121;
+            }
+            
+            .btn-custom {
+                color: #fff;
+                background-color: #4269e7;
+            }
+            
+            .btn-custom:hover,
+            .btn-custom:focus {
+                color: #fff;
+            }

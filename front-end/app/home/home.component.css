@@ -1,0 +1,14 @@
+.home {
+    color: #000000;
+    text-align: center;
+    margin: 90px auto;
+}
+
+h2 {
+    margin: 90px auto;
+}
+
+#address {
+    font-size: 25px;
+    margin-top: 70px;
+}

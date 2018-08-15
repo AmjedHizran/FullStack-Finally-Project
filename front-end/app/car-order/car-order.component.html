@@ -1,0 +1,65 @@
+<div id="head">
+    <h1 id="borBot">Rent Car </h1>
+</div>
+
+<div class="row">
+    <div id="section" class="col-md-4 col-md-offset-6">
+        <ul id="data">
+            <li>
+                <h4>Thank You For Choosing Aerorenta car</h4>
+            </li>
+            <li>
+                <h4>The Price Include VAT is : <u> {{carPreview.DailyCost*result + carPreview.DailyCost*result*17 / 100}}₪.</u></h4>
+            </li>
+            <li>
+                <h4>The Car In The Branch : {{branch}}.</h4>
+            </li>
+            <li>
+                <h4>At Any Time , You Can View Your Order Details By Clicking A Button <u> MyOrders.</u></h4>
+            </li>
+        </ul>
+
+    </div>
+
+    <div id="details" class="col-md-4 col-md-offset-8">
+        <ul id="contant">
+            <h1>Car Information</h1>
+            <li>
+                <h4>Car Type : {{carPreview.MakerName}}.</h4>
+            </li>
+            <li>
+                <h4> Model : {{carPreview.Model}}. </h4>
+            </li>
+            <li>
+                <h4>Daily Cost : {{carPreview.DailyCost}}₪. </h4>
+            </li>
+        </ul>
+    </div>
+
+    <div id="date" class="col-xs-6 col-sm-4">
+        <label> 
+                    <h2>start date</h2> <input class="form-control mb-2 mr-sm-0 mb-sm-3 " type="submit" #startDate [(ngModel)]='startDateInput' />
+                    <h2>return date</h2><input class="form-control mb-2 mr-sm-0 mb-sm-3 " type="submit" #returnDate [(ngModel)]='returnDateInput'/>
+        </label>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-4">
+        <div>
+            <button (click)=" rentCar()" [disabled]="!isUser" type="button " title='This is my title' class="btn btn-primary ">Rent Car </button>
+            <button type="button " class="btn btn-default " (click)="allCars() ">All Cars</button>
+        </div>
+    </div>
+    <div id="result" class="col-xs-6 col-sm-4 ">
+        <div id="price">
+            <h4> The Price Is : {{carPreview.DailyCost*result}}₪</h4>
+            <h4> The Cost Of Day Overdue Is : {{carPreview.CostOfDayOverdue}}₪</h4>
+        </div>
+    </div>
+</div>
+<div *ngIf="isUser">
+    <div *ngIf="addedSuccess " class="alert alert-success ">
+        <strong>Your Order Has Been Successfulluy </strong>
+    </div>
+</div>

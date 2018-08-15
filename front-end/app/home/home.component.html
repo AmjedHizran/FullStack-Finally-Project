@@ -1,0 +1,8 @@
+<div class="home ">
+    <h2>Welcome To {{storeInfo?.storeName}}</h2>
+    <img [src]="storeInfo?.mainImage" />
+    <div id="address">
+        <p>Address </p>
+        <div>{{storeInfo?.address?.localInfo()}}</div>
+    </div>
+</div>

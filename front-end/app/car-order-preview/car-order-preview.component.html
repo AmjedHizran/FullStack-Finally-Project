@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1>Car Details</h1>
+        <div id="details">
+            <ul>
+                <li>
+                    <h4>The Maker Name : {{carPreview.MakerName}}</h4>
+                </li>
+                <li>
+                    <h4>The Model : {{carPreview.Model}}</h4>
+                </li>
+                <li>
+                    <h4>Rental Start Date : {{rentedDate}}</h4>
+                </li>
+                <li>
+                    <h4>Renta End Date : {{returnDate}}</h4>
+                </li>
+                <li>
+                    <h4>Actual Return Date : {{actualReturnDate}}</h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-md-4"></div>
+    <div class="col-xs-6 col-md-4">
+        <button id="button" type="button" (click)="back()" class="btn btn-info btn-lg">Go Back</button>
+    </div>
+    <div class="col-xs-6 col-md-4"></div>
+</div>

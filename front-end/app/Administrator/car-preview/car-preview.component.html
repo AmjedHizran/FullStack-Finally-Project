@@ -1,0 +1,146 @@
+<div *ngIf="!display" id="formSearch" class="border border-dark">
+    <h1 class=" display-3 "><u> Search Car Preview</u> </h1>
+    <div class="input-group">
+        <input [(ngModel)]="carTypeId" id="searchInput " type="number" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter car Type Id ..">
+    </div>
+    <button [disabled]="!carTypeId" (click)=" onSearchCarPreview() " type=" button " class="btn btn-primary btn-lg btn-block ">Search</button>
+    <button (click)="onResetCarPreview() " type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+</div>
+<h1 class="alert " *ngIf="!carPreview && showDetails ">
+    <div class="alert alert-danger ">
+        <strong>car Preview Not Found</strong>
+    </div>
+</h1>
+
+<div *ngIf="display">
+    <div class="border border-dark ">
+        <table class="table table-striped table-dark ">
+            <thead>
+                <td>CarTypeID</td>
+                <td>MakerName</td>
+                <td>Model</td>
+                <td>DailyCost</td>
+                <td>CostOfDayOverdue</td>
+                <td>YearOfProduction</td>
+                <td>Gear</td>
+
+                <tr>
+                    <td> {{carPreview.CarTypeID}}</td>
+                    <td> {{carPreview.MakerName}}</td>
+                    <td> {{carPreview.Model}}</td>
+                    <td> {{carPreview.DailyCost}}</td>
+                    <td> {{carPreview.CostOfDayOverdue}}</td>
+                    <td> {{carPreview.YearOfProduction}}</td>
+                    <td> {{carPreview.Gear}}</td>
+
+                </tr>
+            </thead>
+        </table>
+        <div>
+            <em><h1 class="display-3 "><u>Update car Preview</u> </h1></em>
+            <input type="text" required pattern="^([a-zA-Z])+[a-zA-Z]+$" [(ngModel)]=" updateCarPreview.MakerName" class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter MakerName.. ">
+            <span class="validity "></span>
+        </div>
+        <div class="input-group ">
+            <input type="text" [(ngModel)]=" updateCarPreview.Model " class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Model.. ">
+            <span class="validity "></span>
+        </div>
+        <div class="input-group ">
+            <input type="number" [(ngModel)]="updateCarPreview.DailyCost" class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Daily Cost.. ">
+            <span class="validity "></span>
+        </div>
+        <div class="input-group ">
+            <input type="number" [(ngModel)]="updateCarPreview.CostOfDayOverdue" class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Cost Of Day Overdue.. ">
+            <span class="validity "></span>
+        </div>
+        <div class="input-group ">
+            <input type="number" [(ngModel)]="updateCarPreview.YearOfProduction" class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Year Of Production.. ">
+            <span class="validity "></span>
+        </div>
+        <form>
+            <h4>Choose Gear:</h4>
+            <div>
+                <input [(ngModel)]="updateCarPreview.Gear" name="gear" id="gear-auto" type="radio" value="true">
+                <label for="gear-auto">Auto</label>
+                <input [(ngModel)]="updateCarPreview.Gear" name="gear" id="gear-manual" type="radio" value="false">
+                <label for="gear-manual">Manual</label>
+            </div>
+        </form>
+
+        <button *ngIf="updateCarPreview.MakerName && updateCarPreview.Model && updateCarPreview.DailyCost && updateCarPreview.CostOfDayOverdue && updateCarPreview.YearOfProduction " (click)="onEditCarPreview() " type="button " class="btn btn-secondary btn-lg btn-block ">Update Car Preview</button>
+        <button (click)="onResetCarPreview()" type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+        <h1 class="alert ">
+            <div *ngIf="updateSuccess" class="alert alert-success ">
+                <strong>Update Done!!</strong>
+            </div>
+            <div *ngIf="!updateSuccess && isNotValid " class="alert alert-danger">
+                <strong>Update Failed</strong>
+            </div>
+        </h1>
+    </div>
+</div>
+
+
+<div class="border border-dark ">
+    <div>
+        <h1 class=" display-3 "><u> Add Car Preview </u> </h1>
+    </div>
+    <div class="input-group ">
+        <input type="text" required pattern="^([a-zA-Z])+[a-zA-Z]+$" [(ngModel)]=" newCarPreview.MakerName" class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter MakerName.. ">
+        <span class="validity "></span>
+    </div>
+    <div class="input-group ">
+        <input type="text" [(ngModel)]=" newCarPreview.Model " class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Model.. ">
+        <span class="validity "></span>
+    </div>
+    <div class="input-group ">
+        <input type="number" [(ngModel)]="newCarPreview.DailyCost" class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Daily Cost.. ">
+        <span class="validity "></span>
+    </div>
+    <div class="input-group ">
+        <input type="number" [(ngModel)]=" newCarPreview.CostOfDayOverdue " class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Cost Of Day Overdue.. ">
+        <span class="validity "></span>
+    </div>
+    <div class="input-group ">
+        <input type="number" [(ngModel)]=" newCarPreview.YearOfProduction " class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Year Of Production.. ">
+        <span class="validity "></span>
+    </div>
+    <form>
+        <h4>Choose Gear:</h4>
+        <div>
+            <input [(ngModel)]="newCarPreview.Gear" name="gear" id="gear-auto" type="radio" value="true">
+            <label for="gear-auto">Auto</label>
+            <input [(ngModel)]="newCarPreview.Gear" name="gear" id="gear-manual" type="radio" value="false">
+            <label for="gear-manual">Manual</label>
+        </div>
+    </form>
+
+    <button *ngIf="newCarPreview.MakerName && newCarPreview.Model && newCarPreview.DailyCost && newCarPreview.CostOfDayOverdue && newCarPreview.YearOfProduction " (click)=" onAddingCarPreview() " type="button " class="btn btn-primary btn-lg btn-block ">Add Car Preview</button>
+    <button (click)="onResetCarPreview() " type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+</div>
+
+<h1 class="alert ">
+    <div *ngIf="addedSuccess " class="alert alert-success ">
+        <strong>Added Success!!</strong>
+    </div>
+</h1>
+<h1 class="alert ">
+    <div *ngIf="!addedSuccess && isNotValid " class="alert alert-danger ">
+        <strong>Incorrect Input , Please Insert Only Characters</strong>
+    </div>
+</h1>
+
+<div id="delete " class="border border-dark ">
+    <em><h1 class="display-3 "><u>Delete Car Preview </u> </h1> </em>
+    <div class=" col-xs-2 ">
+        <div class="input-group input-group ">
+            <input [(ngModel)]="deleteCarTypeId " type="number" class="form-control mb-2 mr-sm-0 mb-sm-3 " placeholder="Enter car Type Id.. ">
+        </div>
+        <button [disabled]="!deleteCarTypeId " type="button " class="btn btn-danger btn-lg btn-block " (click)="onDeleteCarPreview() ">Delete Car Preview</button>
+    </div>
+</div>
+<h1 class="alert " *ngIf="deleteSuccess ">
+    <div class="alert alert-danger ">
+        <strong>Delete Done!!</strong>
+    </div>
+</h1>

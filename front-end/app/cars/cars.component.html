@@ -1,0 +1,14 @@
+<h1 class=" display-3 ">Available CARS INFORMATION </h1>
+<div id="search">
+    <h4>Insert Type Car:</h4>
+    <input type="text" placeholder="Type To Search.." [(ngModel)]="search" />
+</div>
+<div id="row" class="row">
+    <div *ngFor="let cars of carPreview | appString :'MakerName' : search ">
+        <div *ngFor="let car of carList ">
+            <a class="row" *ngIf="car.CarTypeID == cars.CarTypeID && car.IsProperToRent == true" (click)="carDetails(car.CarTypeID , car.LocatedAtTheBranch)">
+                <img id="image" [src]=" car.Image " style="width:400px; height:300px;" />
+            </a>
+        </div>
+    </div>
+</div>

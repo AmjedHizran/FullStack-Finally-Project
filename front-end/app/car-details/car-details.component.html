@@ -1,0 +1,40 @@
+<h1 class="display-3">Car Information</h1>
+<div class="row">
+    <div id="display" class="col-xs-2  col-md-6">
+        <img id="image" [src]="car.Image" style="width:400px; height:300px;" />
+        <div>
+            <button type="button" class="btn btn-primary" (click)="calculate(car.CarTypeID , branch.Address)">Calculate Cost</button>
+            <button type="button" class="btn btn-default" (click)="goBack()">Go Back</button>
+        </div>
+    </div>
+    <div id="details" class="col-xs-4 col-sm-6 col-md-4">
+        <ul id="contant">
+            <li>
+                <h4>Car Type : {{carPreview.MakerName}}.</h4>
+            </li>
+            <li>
+                <h4> Model : {{carPreview.Model}}. </h4>
+            </li>
+            <li>
+                <h4>Daily Cost : {{carPreview.DailyCost}}₪.</h4>
+            </li>
+            <li>
+                <h4>Cost Of Day Overdue : {{carPreview.CostOfDayOverdue}}₪. </h4>
+            </li>
+            <li>
+                <h4>Year Of Production : {{carPreview.YearOfProduction}}.</h4>
+            </li>
+            <li *ngIf="carPreview.Gear == false">
+                <h4>Gear: Manual</h4>
+            </li>
+            <li *ngIf="carPreview.Gear == true">
+                <h4>Gear: Auto</h4>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class=" media-Left ">
+    <div id="locate" class="alert alert-secondary" role="alert">
+        <strong>   Located At The Branch : {{branch.Address}} </strong>
+    </div>
+</div>
