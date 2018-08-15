@@ -1,0 +1,65 @@
+.border {
+    text-align: center;
+}
+
+#contant {
+    margin-top: 10px;
+}
+
+#details {
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+#result {
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    text-align: center;
+}
+
+#image {
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+u {
+    color: rgb(110, 110, 110);
+}
+
+h4 {
+    margin-bottom: 30px;
+}
+
+#head {
+    color: #000000;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgb(223, 142, 142);
+}
+
+#date {
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin-left: 8%;
+}
+
+#price {
+    margin-top: 30px;
+    color: rgb(226, 226, 226);
+}
+
+p {
+    font-size: 18px;
+    color: rgb(226, 226, 226);
+}
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#borBot {
+    margin-bottom: 50px;
+}

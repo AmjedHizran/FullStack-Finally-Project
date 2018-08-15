@@ -1,0 +1,38 @@
+            #search {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+            
+            H1 {
+                color: #000000;
+                text-align: center;
+                margin-top: 79px;
+                margin-bottom: 90px;
+                border-bottom: 1px solid rgb(219, 96, 96);
+            }
+            
+            h4 {
+                color: #3a3a3a;
+                margin-top: 30px;
+                text-align: center;
+            }
+            
+            #image {
+                margin-right: 20px;
+                display: inline-block;
+                border: 5px solid rgb(0, 0, 0);
+            }
+            
+            input:enabled {
+                border-color: black;
+                text-align: center;
+                font-size: 20px;
+                margin: 40px auto;
+            }
+            
+            #row {
+                border-radius: 10px;
+                background-image: linear-gradient(rgb(180, 180, 180), white);
+                padding-left: 13%;
+                padding-right: 10%;
+            }

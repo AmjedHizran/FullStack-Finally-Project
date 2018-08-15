@@ -1,0 +1,17 @@
+<img [src]="userInfo.userUrlAvatar" />
+<span>hello {{userInfo.fullName}}</span>
+<nav>
+    <div class="navbar navbar-inverse">
+        <a class="btn btn-warning" *ngIf="userInfo.fullName != 'Guest'" (click)="logout()">Logout</a>
+        <a *ngIf="userInfo.fullName !='Guest' && local.rolename =='Seller'" routerLink="/ReturnCar">Return Car</a>
+        <a *ngIf="userInfo.fullName !='Guest' && local.rolename =='Administrator'" routerLink="/user">User Control</a>
+        <a *ngIf="userInfo.fullName !='Guest' && local.rolename =='Administrator'" routerLink="/car">Car Control</a>
+        <a *ngIf="userInfo.fullName !='Guest' && local.rolename =='Administrator'" routerLink="/carPreview">CarType Control</a>
+        <a *ngIf="userInfo.fullName !='Guest' && local.rolename =='Administrator'" routerLink="/order">Order Control</a>
+        <a *ngIf="userInfo.fullName =='Guest'" routerLink="/Register">Register</a>
+        <a *ngIf="userInfo.fullName =='Guest'" routerLink="/Login">Login</a>
+        <a routerLink="/home">Home</a>
+        <a *ngIf="userInfo.fullName =='Guest' || local.rolename =='Buyer'" routerLink="/Cars">Cars</a>
+        <a *ngIf="userInfo.fullName !='Guest' && local.rolename =='Buyer'" routerLink="/MyOrders">My Orders</a>
+    </div>
+</nav>

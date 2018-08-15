@@ -1,0 +1,42 @@
+        H1 {
+            color: #000000;
+            text-align: center;
+            margin-top: 90px;
+            margin-bottom: 100px;
+        }
+        
+        .row {
+            border-radius: 10px;
+            border: 5px solid rgb(126, 126, 126);
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        #display {
+            left: 60px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        #image {
+            border-radius: 10px;
+            border: 5px solid rgb(126, 126, 126);
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        #contant {
+            margin-top: 30px;
+        }
+        
+        #details {
+            left: 10%;
+            border-radius: 10px;
+            border: 5px solid rgb(126, 126, 126);
+            margin-top: 90px;
+            margin-bottom: 50px;
+        }
+        
+        h4 {
+            margin-bottom: 30px;
+        }

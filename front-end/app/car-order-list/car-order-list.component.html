@@ -1,0 +1,27 @@
+<div id="form">
+
+    <div class="home ">
+        <h2>Thank You For Chossing {{storeInfo?.storeName}}</h2>
+        <img id="mainImage" [src]="storeInfo?.mainImage" />
+    </div>
+
+    <div class="col-xs-2 col-md-6"></div>
+    <div id="row" class="row">
+        <div *ngFor="let car of carOrdered let i = index">
+            <a (click)="orderDetails(car.CarID , car.CarTypeID , allOrders[i].RentedDate , allOrders[i].ReturnDate , allOrders[i].ActualReturnDate) ">
+                <img [src]="car.Image" id="image" style="width:400px; height:300px;" />
+            </a>
+        </div>
+    </div>
+    <div class="col-xs-2 col-md-6"></div>
+
+    <h1 class="alert ">
+        <div *ngIf="!carOrdered" class="alert alert-danger ">
+            <strong>You Have Not Ordered Any Car </strong>
+        </div>
+    </h1>
+
+    <div>
+        <button id="button" type="button" (click)="toAllCars()" class="btn btn-info btn-lg">To All Cars</button>
+    </div>
+</div>

@@ -1,0 +1,179 @@
+<div *ngIf="!display" id="formSearch" class="border border-dark">
+    <h1 class=" display-3 "><u> Search Car </u> </h1>
+    <div class="input-group">
+        <input required pattern="[0-9]{1,20}" [(ngModel)]=" CarNumberSearch " id="searchInput " type="number" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Car ID ..">
+        <span class="validity "></span>
+    </div>
+    <button [disabled]="!CarNumberSearch" (click)="onSearchCar()" type="button" class="btn btn-primary btn-lg btn-block">Search</button>
+    <button (click)="onResetCar()" type="button" class="btn btn-secondary btn-lg btn-block">Reset Form</button>
+</div>
+<h1 class="alert" *ngIf="!car && showDetails">
+    <div class="alert alert-danger">
+        <strong>Car Not Found</strong>
+    </div>
+</h1>
+
+
+<div *ngIf="display">
+    <div class="border border-dark">
+        <table class="table table-striped table-dark">
+            <thead>
+                <td>CarID</td>
+                <td>CarTypeID</td>
+                <td>CurrentKilometrage</td>
+                <td>Image</td>
+                <td>IsProperToRent</td>
+                <td>CarNumber</td>
+                <td>LocatedAtTheBranch</td>
+                <tr>
+                    <td> {{car.CarID}}</td>
+                    <td> {{car.CarTypeID}}</td>
+                    <td> {{car.CurrentKilometrage}}</td>
+                    <td class="pictures"><img [src]="car.Image" style="width:250px; height:150px;" /></td>
+                    <td> {{car.IsProperToRent}}</td>
+                    <td> {{car.CarNumber}}</td>
+                    <td> {{car.LocatedAtTheBranch}}</td>
+                </tr>
+            </thead>
+        </table>
+
+        <em><h1 class="display-3 "><u>Update Car </u> </h1></em>
+        <input [(ngModel)]="updateCar.CurrentKilometrage" required pattern="[0-9]" type="number" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Kilometrage ..">
+        <input [(ngModel)]="updateCar.Image " required pattern="https?://.+" title="Include http://" type="text" class="form-control mb-2 mr-sm-0 mb-sm-2" placeholder="Enter A URL Image..">
+        <form>
+            <h4>Is Proper To Rent:</h4>
+            <div>
+                <input [(ngModel)]="updateCar.IsProperToRent" type="radio" id="yes" name="contact" value="true" checked>
+                <label for="yes">Yes</label>
+
+                <input [(ngModel)]="updateCar.IsProperToRent" type="radio" id="no" name="contact" value="false">
+                <label for="no">No</label>
+            </div>
+        </form>
+        <input required pattern="[1-9]" [(ngModel)]="updateCar.CarNumber" type="number" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Car Number..">
+        <input required pattern="[1-9]" [(ngModel)]="updateCar.LocatedAtTheBranch" type="number" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Located At The Branch..">
+        <button *ngIf="updateCar.CurrentKilometrage && updateCar.Image && updateCar.IsProperToRent && updateCar.CarNumber" (click)="onEditCar()" type="button" class="btn btn-primary btn-lg btn-block">Update Car</button>
+        <button (click)="onResetCar()" type="button" class="btn btn-secondary btn-lg btn-block">Reset Form</button>
+        <h1 class="alert">
+            <div *ngIf="updateSuccess" class="alert alert-success">
+                <strong>Update Done!!</strong>
+            </div>
+            <div *ngIf="!updateSuccess && isNotValid" class="alert alert-danger">
+                <strong>Update Failed</strong>
+            </div>
+        </h1>
+    </div>
+</div>
+
+<div class="border border-dark">
+    <div>
+        <h1 class=" display-3"><u>Add Car </u> </h1>
+        <h1></h1>
+    </div>
+    <div>
+        <div class="input-group">
+            <input type="text" required pattern="^([a-zA-Z])+[a-zA-Z]+$" [(ngModel)]="newCarPreview.MakerName" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter MakerName..">
+            <span class="validity"></span>
+        </div>
+        <div class="input-group">
+            <input type="text" required pattern="[a-zA-Z0-9]+$" [(ngModel)]="newCarPreview.Model" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Model..">
+            <span class="validity"></span>
+        </div>
+        <div class="input-group">
+            <input type="number" required pattern="[0-9]+$" [(ngModel)]="newCarPreview.DailyCost" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Daily Cost..">
+            <span class="validity"></span>
+        </div>
+        <div class="input-group">
+            <input type="number" required pattern="[0-9]+$" [(ngModel)]="newCarPreview.CostOfDayOverdue" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Cost Of Day Overdue..">
+            <span class="validity"></span>
+        </div>
+        <div class="input-group">
+            <input type="number" required pattern="[0-9]+$" [(ngModel)]="newCarPreview.YearOfProduction" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Year Of Production..">
+            <span class="validity"></span>
+        </div>
+        <form>
+            <h4>Choose Gear:</h4>
+            <div>
+                <input [(ngModel)]="newCarPreview.Gear" type="radio" id="yes" name="contact" value="true" checked>
+                <label for="yes">Auto</label>
+
+                <input [(ngModel)]="newCarPreview.Gear" type="radio" id="no" name="contact" value="false">
+                <label for="Manual">Manual</label>
+            </div>
+        </form>
+
+    </div>
+    <div>
+        <div class="input-group">
+            <input type="number" required pattern="[0-9]+$" [(ngModel)]="newCar.CurrentKilometrage" class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Current Kilometrage..">
+            <span class="validity "></span>
+        </div>
+
+        <div class="input-group">
+            <input required pattern="https?://.+ " title="Include http://" [(ngModel)]=" newCar.Image" type="text" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Image URL..">
+            <span class="validity"></span>
+        </div>
+
+        <form>
+            <h4>Is Proper To Rent:</h4>
+            <div>
+                <input [(ngModel)]="newCar.IsProperToRent" type="radio" id="yes" name="contact" value="true" checked>
+                <label for="yes">Yes</label>
+
+                <input [(ngModel)]="newCar.IsProperToRent" type="radio" id="no" name="contact" value="false">
+                <label for="no">No</label>
+            </div>
+        </form>
+
+        <div class="input-group">
+            <input [(ngModel)]="newCar.CarNumber" required pattern="[0-9]+$" type="number" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Car Number">
+            <span class="validity"></span>
+        </div>
+
+    </div>
+    <div>
+        <div class="input-group">
+            <input [(ngModel)]="newBranch.Name" type="text" required pattern="[a-zA-Z]+$" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Branch Name">
+            <span class="validity"></span>
+        </div>
+        <div class="input-group">
+            <input [(ngModel)]="newBranch.Latitude" required pattern="^([0-9]+[\\ \\.])+[0-9]+$" type="text" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Branch Latitude">
+            <span class="validity"></span>
+        </div>
+        <div class="input-group">
+            <input [(ngModel)]="newBranch.Longitude" required pattern="^([0-9]+[\\ \\.])+[0-9]+$" type="text" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Branch Longitude">
+            <span class="validity"></span>
+        </div>
+        <div class="input-group">
+            <input [(ngModel)]="newBranch.Address" required pattern="^([a-zA-Z0-9\\s])+[\\ \\,]+[a-zA-Z0-9\\s]+$" type="text" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Branch Address - for example: 'Tel Aviv, Hamsger 15'">
+            <span class="validity"></span>
+        </div>
+    </div>
+
+    <button (click)="onAddingCarPreview()" type="button" class="btn btn-primary btn-lg btn-block">Add Car</button>
+    <button (click)="onResetCar()" type="button" class="btn btn-secondary btn-lg btn-block">Reset Form</button>
+
+</div>
+<h1 class="alert ">
+    <div *ngIf="addednewCar" class="alert alert-success">
+        <strong>Added Success!!</strong>
+    </div>
+    <div *ngIf="!addednewCar && !newCar" class="alert alert-danger">
+        <strong>Incorrect Input , Please Insert Only Characters</strong>
+    </div>
+</h1>
+
+<div id="delete" class="border border-dark">
+    <em><h1 class="display-3"><u>Delete Car</u> </h1> </em>
+    <div class=" col-xs-2">
+        <div class="input-group input-group">
+            <input [(ngModel)]="carId" type="number" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Car ID.. ">
+        </div>
+        <button [disabled]="!carId" type="button" class="btn btn-danger btn-lg btn-block" (click)="onDeleteCar()">Delete Car</button>
+    </div>
+</div>
+<h1 class="alert" *ngIf="deleteSuccess">
+    <div class="alert alert-danger">
+        <strong>Delete Done!!</strong>
+    </div>
+</h1>
