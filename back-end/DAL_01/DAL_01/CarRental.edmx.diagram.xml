@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5a7fbc837b67443b9d793961f24fef41" Name="Diagram1">
+        <EntityTypeShape EntityType="CarRentDBModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.Branch" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.Car" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.CarType" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.Order" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.Role" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.User" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.UserClaim" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.UserLogin" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentDBModel.User1" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="CarRentDBModel.FK_Cars2_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentDBModel.FK_Cars1_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentDBModel.FK_Orders2_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentDBModel.FK_Orders1_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentDBModel.FK_Users_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentDBModel.FK_dbo_UserClaim_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentDBModel.FK_dbo_UserLogin_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentDBModel.UserRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
